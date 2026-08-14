@@ -1,0 +1,11 @@
+MYDANGLE V2
+
+1. Open MyDangleV2.xcodeproj in Xcode.
+2. Select My Mac.
+3. If Xcode asks for signing, choose your Apple Development Team.
+4. Press Command + R.
+5. Wait about one second.
+6. Look for "🧿 MyDangle" in the menu bar.
+7. The hanging charm should appear from the top center.
+
+This is a fresh project. Do not merge it with the old MyDangle folder.

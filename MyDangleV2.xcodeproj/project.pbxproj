@@ -1,0 +1,62 @@
+// !$*UTF8*$!
+{
+ archiveVersion = 1;
+ classes = {};
+ objectVersion = 56;
+ objects = {
+
+/* Begin PBXBuildFile section */
+ A1 /* App */ = {isa = PBXBuildFile; fileRef = B1; };
+ A2 /* Controller */ = {isa = PBXBuildFile; fileRef = B2; };
+ A3 /* Status */ = {isa = PBXBuildFile; fileRef = B3; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+ B1 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDangleV2App.swift; sourceTree = "<group>"; };
+ B2 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DangleController.swift; sourceTree = "<group>"; };
+ B3 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarController.swift; sourceTree = "<group>"; };
+ B4 = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+ B5 = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+ B6 = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyDangleV2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+ F1 = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+ G1 = {isa = PBXGroup; children = (G2, G3); sourceTree = "<group>"; };
+ G2 = {isa = PBXGroup; children = (B1, B2, B3, B4, B5); path = MyDangleV2; sourceTree = "<group>"; };
+ G3 = {isa = PBXGroup; children = (B6); name = Products; sourceTree = "<group>"; };
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+ T1 = {isa = PBXNativeTarget; buildConfigurationList = CL2; buildPhases = (S1, F1, R1); buildRules = (); dependencies = (); name = MyDangleV2; productName = MyDangleV2; productReference = B6; productType = "com.apple.product-type.application"; };
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+ P1 = {isa = PBXProject; attributes = {BuildIndependentTargetsInParallel = 1; LastUpgradeCheck = 1600;}; buildConfigurationList = CL1; compatibilityVersion = "Xcode 14.0"; developmentRegion = en; hasScannedForEncodings = 0; knownRegions = (en, Base); mainGroup = G1; productRefGroup = G3; projectDirPath = ""; projectRoot = ""; targets = (T1); };
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+ R1 = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+ S1 = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (A1, A2, A3); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+ C1 = {isa = XCBuildConfiguration; buildSettings = {CLANG_ENABLE_MODULES = YES; DEBUG_INFORMATION_FORMAT = dwarf; ENABLE_TESTABILITY = YES; MACOSX_DEPLOYMENT_TARGET = 13.0; ONLY_ACTIVE_ARCH = YES; SDKROOT = macosx; SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG; SWIFT_OPTIMIZATION_LEVEL = "-Onone";}; name = Debug; };
+ C2 = {isa = XCBuildConfiguration; buildSettings = {CLANG_ENABLE_MODULES = YES; DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym"; MACOSX_DEPLOYMENT_TARGET = 13.0; SDKROOT = macosx; SWIFT_COMPILATION_MODE = wholemodule; SWIFT_OPTIMIZATION_LEVEL = "-O";}; name = Release; };
+ C3 = {isa = XCBuildConfiguration; buildSettings = {CODE_SIGN_STYLE = Automatic; CURRENT_PROJECT_VERSION = 2; GENERATE_INFOPLIST_FILE = NO; INFOPLIST_FILE = MyDangleV2/Info.plist; LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/../Frameworks"); MACOSX_DEPLOYMENT_TARGET = 13.0; MARKETING_VERSION = 0.2; PRODUCT_BUNDLE_IDENTIFIER = com.local.MyDangleV2; PRODUCT_NAME = "$(TARGET_NAME)"; SWIFT_VERSION = 5.0;}; name = Debug; };
+ C4 = {isa = XCBuildConfiguration; buildSettings = {CODE_SIGN_STYLE = Automatic; CURRENT_PROJECT_VERSION = 2; GENERATE_INFOPLIST_FILE = NO; INFOPLIST_FILE = MyDangleV2/Info.plist; LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/../Frameworks"); MACOSX_DEPLOYMENT_TARGET = 13.0; MARKETING_VERSION = 0.2; PRODUCT_BUNDLE_IDENTIFIER = com.local.MyDangleV2; PRODUCT_NAME = "$(TARGET_NAME)"; SWIFT_VERSION = 5.0;}; name = Release; };
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+ CL1 = {isa = XCConfigurationList; buildConfigurations = (C1, C2); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+ CL2 = {isa = XCConfigurationList; buildConfigurations = (C3, C4); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+/* End XCConfigurationList section */
+ };
+ rootObject = P1;
+}
