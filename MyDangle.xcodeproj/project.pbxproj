@@ -1,251 +1,33 @@
 // !$*UTF8*$!
-{
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 56;
-	objects = {
-
+{archiveVersion = 1; classes = {}; objectVersion = 56; objects = {
 /* Begin PBXBuildFile section */
-		A10000000000000000000001 /* MyDangleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000001 /* MyDangleApp.swift */; };
-		A10000000000000000000002 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000002 /* AppSettings.swift */; };
-		A10000000000000000000003 /* DanglePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000003 /* DanglePanel.swift */; };
-		A10000000000000000000004 /* DangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000004 /* DangleView.swift */; };
-		A10000000000000000000005 /* DangleWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000005 /* DangleWindowController.swift */; };
-		A10000000000000000000006 /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000006 /* StatusBarController.swift */; };
+A1 = {isa = PBXBuildFile; fileRef = F1;}; A2 = {isa = PBXBuildFile; fileRef = F2;}; A3 = {isa = PBXBuildFile; fileRef = F3;}; A4 = {isa = PBXBuildFile; fileRef = F4;}; A5 = {isa = PBXBuildFile; fileRef = F5;}; R1 = {isa = PBXBuildFile; fileRef = I1;}; R2 = {isa = PBXBuildFile; fileRef = I2;};
+		A10000000000000000000007 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000009 /* main.swift */; };
 /* End PBXBuildFile section */
-
 /* Begin PBXFileReference section */
-		A20000000000000000000001 /* MyDangleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDangleApp.swift; sourceTree = "<group>"; };
-		A20000000000000000000002 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
-		A20000000000000000000003 /* DanglePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DanglePanel.swift; sourceTree = "<group>"; };
-		A20000000000000000000004 /* DangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DangleView.swift; sourceTree = "<group>"; };
-		A20000000000000000000005 /* DangleWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DangleWindowController.swift; sourceTree = "<group>"; };
-		A20000000000000000000006 /* StatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarController.swift; sourceTree = "<group>"; };
-		A20000000000000000000007 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A20000000000000000000008 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		A20000000000000000000009 /* MyDangle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyDangle.app; sourceTree = BUILT_PRODUCTS_DIR; };
+F1={isa=PBXFileReference;lastKnownFileType=sourcecode.swift;path=AppDelegate.swift;sourceTree="<group>";};
+F2={isa=PBXFileReference;lastKnownFileType=sourcecode.swift;path=AppSettings.swift;sourceTree="<group>";};
+F3={isa=PBXFileReference;lastKnownFileType=sourcecode.swift;path=DangleController.swift;sourceTree="<group>";};
+F4={isa=PBXFileReference;lastKnownFileType=sourcecode.swift;path=StatusBarController.swift;sourceTree="<group>";};
+F5={isa=PBXFileReference;lastKnownFileType=sourcecode.swift;path=ControlWindowController.swift;sourceTree="<group>";};
+P1={isa=PBXFileReference;lastKnownFileType=text.plist.xml;path=Info.plist;sourceTree="<group>";};
+I1={isa=PBXFileReference;lastKnownFileType=image.png;path=bhairava_charm.png;sourceTree="<group>";};
+I2={isa=PBXFileReference;lastKnownFileType=image.png;path=lemon_chilli_charm.png;sourceTree="<group>";};
+APP={isa=PBXFileReference;explicitFileType=wrapper.application;includeInIndex=0;path=MyDangle.app;sourceTree=BUILT_PRODUCTS_DIR;};
+		A20000000000000000000009 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		A30000000000000000000001 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		A40000000000000000000001 = {
-			isa = PBXGroup;
-			children = (
-				A40000000000000000000002 /* MyDangle */,
-				A40000000000000000000003 /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		A40000000000000000000002 /* MyDangle */ = {
-			isa = PBXGroup;
-			children = (
-				A20000000000000000000001 /* MyDangleApp.swift */,
-				A20000000000000000000002 /* AppSettings.swift */,
-				A20000000000000000000003 /* DanglePanel.swift */,
-				A20000000000000000000004 /* DangleView.swift */,
-				A20000000000000000000005 /* DangleWindowController.swift */,
-				A20000000000000000000006 /* StatusBarController.swift */,
-				A20000000000000000000007 /* Info.plist */,
-				A20000000000000000000008 /* README.md */,
-			);
-			path = MyDangle;
-			sourceTree = "<group>";
-		};
-		A40000000000000000000003 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				A20000000000000000000009 /* MyDangle.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-/* End PBXGroup section */
-
-/* Begin PBXNativeTarget section */
-		A50000000000000000000001 /* MyDangle */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A90000000000000000000002 /* Build configuration list for PBXNativeTarget "MyDangle" */;
-			buildPhases = (
-				A60000000000000000000001 /* Sources */,
-				A30000000000000000000001 /* Frameworks */,
-				A70000000000000000000001 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = MyDangle;
-			productName = MyDangle;
-			productReference = A20000000000000000000009 /* MyDangle.app */;
-			productType = "com.apple.product-type.application";
-		};
-/* End PBXNativeTarget section */
-
-/* Begin PBXProject section */
-		A80000000000000000000001 /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1600;
-				LastUpgradeCheck = 1600;
-				TargetAttributes = {
-					A50000000000000000000001 = {
-						CreatedOnToolsVersion = 16.0;
-					};
-				};
-			};
-			buildConfigurationList = A90000000000000000000001 /* Build configuration list for PBXProject "MyDangle" */;
-			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-				Base,
-			);
-			mainGroup = A40000000000000000000001;
-			productRefGroup = A40000000000000000000003 /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				A50000000000000000000001 /* MyDangle */,
-			);
-		};
-/* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		A70000000000000000000001 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		A60000000000000000000001 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A10000000000000000000001 /* MyDangleApp.swift in Sources */,
-				A10000000000000000000002 /* AppSettings.swift in Sources */,
-				A10000000000000000000003 /* DanglePanel.swift in Sources */,
-				A10000000000000000000004 /* DangleView.swift in Sources */,
-				A10000000000000000000005 /* DangleWindowController.swift in Sources */,
-				A10000000000000000000006 /* StatusBarController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin XCBuildConfiguration section */
-		B00000000000000000000001 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-			};
-			name = Debug;
-		};
-		B00000000000000000000002 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_C_LANGUAGE_STANDARD = gnu17;
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				SDKROOT = macosx;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
-			};
-			name = Release;
-		};
-		B00000000000000000000003 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = MyDangle/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.local.MyDangle;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		B00000000000000000000004 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = MyDangle/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.local.MyDangle;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
-/* End XCBuildConfiguration section */
-
-/* Begin XCConfigurationList section */
-		A90000000000000000000001 /* Build configuration list for PBXProject "MyDangle" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B00000000000000000000001 /* Debug */,
-				B00000000000000000000002 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A90000000000000000000002 /* Build configuration list for PBXNativeTarget "MyDangle" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B00000000000000000000003 /* Debug */,
-				B00000000000000000000004 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-/* End XCConfigurationList section */
-	};
-	rootObject = A80000000000000000000001 /* Project object */;
-}
+FRAME={isa=PBXFrameworksBuildPhase;buildActionMask=2147483647;files=();runOnlyForDeploymentPostprocessing=0;};
+MAIN={isa=PBXGroup;children=(SRC,PROD);sourceTree="<group>";};
+SRC={isa=PBXGroup;children=(F1,F2,F3,F4,F5,A20000000000000000000009,I1,I2,P1);path=MyDangle;sourceTree="<group>";};
+PROD={isa=PBXGroup;children=(APP);name=Products;sourceTree="<group>";};
+TARGET={isa=PBXNativeTarget;buildConfigurationList=TCL;buildPhases=(SOURCES,FRAME,RES);buildRules=();dependencies=();name=MyDangle;productName=MyDangle;productReference=APP;productType="com.apple.product-type.application";};
+PROJECT={isa=PBXProject;attributes={BuildIndependentTargetsInParallel=1;LastUpgradeCheck=1600;};buildConfigurationList=PCL;compatibilityVersion="Xcode 14.0";developmentRegion=en;hasScannedForEncodings=0;knownRegions=(en,Base);mainGroup=MAIN;productRefGroup=PROD;projectDirPath="";projectRoot="";targets=(TARGET);};
+RES={isa=PBXResourcesBuildPhase;buildActionMask=2147483647;files=(R1,R2);runOnlyForDeploymentPostprocessing=0;};
+SOURCES={isa=PBXSourcesBuildPhase;buildActionMask=2147483647;files=(A1,A2,A3,A4,A5,A10000000000000000000007);runOnlyForDeploymentPostprocessing=0;};
+PD={isa=XCBuildConfiguration;buildSettings={CLANG_ENABLE_MODULES=YES;MACOSX_DEPLOYMENT_TARGET=13.0;SDKROOT=macosx;SWIFT_OPTIMIZATION_LEVEL="-Onone";};name=Debug;};
+PR={isa=XCBuildConfiguration;buildSettings={CLANG_ENABLE_MODULES=YES;MACOSX_DEPLOYMENT_TARGET=13.0;SDKROOT=macosx;SWIFT_OPTIMIZATION_LEVEL="-O";};name=Release;};
+TD={isa=XCBuildConfiguration;buildSettings={CODE_SIGN_STYLE=Automatic;CURRENT_PROJECT_VERSION=5;GENERATE_INFOPLIST_FILE=NO;INFOPLIST_FILE=MyDangle/Info.plist;MACOSX_DEPLOYMENT_TARGET=13.0;MARKETING_VERSION=1.4;PRODUCT_BUNDLE_IDENTIFIER=com.local.mydangle.doubleclick;PRODUCT_NAME=MyDangle;SWIFT_VERSION=5.0;};name=Debug;};
+TR={isa=XCBuildConfiguration;buildSettings={CODE_SIGN_STYLE=Automatic;CURRENT_PROJECT_VERSION=5;GENERATE_INFOPLIST_FILE=NO;INFOPLIST_FILE=MyDangle/Info.plist;MACOSX_DEPLOYMENT_TARGET=13.0;MARKETING_VERSION=1.4;PRODUCT_BUNDLE_IDENTIFIER=com.local.mydangle.doubleclick;PRODUCT_NAME=MyDangle;SWIFT_VERSION=5.0;};name=Release;};
+PCL={isa=XCConfigurationList;buildConfigurations=(PD,PR);defaultConfigurationIsVisible=0;defaultConfigurationName=Release;};
+TCL={isa=XCConfigurationList;buildConfigurations=(TD,TR);defaultConfigurationIsVisible=0;defaultConfigurationName=Release;};
+}; rootObject = PROJECT;}
