@@ -35,7 +35,7 @@ final class ControlWindowController: NSWindowController {
         title.frame = NSRect(x: 28, y: 235, width: 330, height: 38)
         content.addSubview(title)
 
-        let subtitle = NSTextField(labelWithString: "Your local hanging charm is running.")
+        let subtitle = NSTextField(labelWithString: "Physics v1.5 — weighted charm + flexible rope.")
         subtitle.textColor = .secondaryLabelColor
         subtitle.frame = NSRect(x: 30, y: 207, width: 330, height: 24)
         content.addSubview(subtitle)
@@ -61,7 +61,7 @@ final class ControlWindowController: NSWindowController {
         push.frame = NSRect(x: 195, y: 105, width: 150, height: 34)
         content.addSubview(push)
 
-        let help = NSTextField(wrappingLabelWithString: "Drag the charm on your desktop and flick it. Close this window anytime—the charm keeps running. Double-click MyDangle.app again to reopen these controls.")
+        let help = NSTextField(wrappingLabelWithString: "Grab the charm and move the mouse—the weighted charm now follows with natural spring lag. Flick and release to transfer mouse speed into the rope. Close this window anytime; the charm keeps running.")
         help.textColor = .secondaryLabelColor
         help.frame = NSRect(x: 30, y: 36, width: 330, height: 55)
         content.addSubview(help)
