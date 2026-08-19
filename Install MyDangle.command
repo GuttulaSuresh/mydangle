@@ -8,7 +8,7 @@ DEST_APP="$DEST_DIR/MyDangle.app"
 
 clear
 echo "========================================"
-echo "        MyDangle 1.5 Physics Installer"
+echo "        MyDangle 1.6 Lock & Startup Installer"
 echo "========================================"
 echo
 
@@ -24,7 +24,7 @@ if ! command -v xcodebuild >/dev/null 2>&1; then
   exit 1
 fi
 
-echo "Building MyDangle 1.5 with realistic rope physics..."
+echo "Building MyDangle 1.6 with lock/sleep and startup support..."
 rm -rf "$BUILD_DIR"
 
 xcodebuild \
@@ -68,7 +68,7 @@ sleep 1
 open -R "$DEST_APP"
 
 echo
-echo "Done. MyDangle 1.5 is installed. Double-click MyDangle.app any time to reopen its control window."
+echo "Done. MyDangle 1.6 is installed. Double-click MyDangle.app any time to reopen its control window."
 echo
 read -n 1 -s -r -p "Press any key to close..."
 echo

@@ -1,79 +1,78 @@
-MYDANGLE 1.5 — REALISTIC ROPE & PHYSICS
-=======================================
+MYDANGLE v1.6 — LOCK, SLEEP & STARTUP
+=====================================
 
-This package is based on the stable double-clickable v1.4 app and keeps:
-- normal double-click launch
-- visible control window
-- menu-bar controls
-- Bhairava charm
-- Lemon & Chilli charm
-- local-only operation
+This version is built on the working v1.5 realistic-rope release.
 
-WHAT'S NEW IN 1.5
------------------
-1. Segmented flexible rope
-   - 18 simulated rope nodes
-   - 10 constraint passes per physics step
-   - rope bends and transmits tension instead of behaving as one rigid pendulum
+WHAT'S NEW
+----------
+1. Launch at Login
+   - Open the MyDangle control window.
+   - Check "Launch MyDangle at login".
+   - Or use menu bar:
+       MyDangle > Startup & Lock > Launch at Login
+   - macOS may show the item in:
+       System Settings > General > Login Items
 
-2. Weighted charm endpoint
-   - the charm has higher effective mass than the rope
-   - bottom rope segments carry more load
-   - swinging feels heavier and less "cartoon-like"
+2. Lock / user-session detection
+   - MyDangle listens for the macOS user session becoming inactive/active.
+   - Physics pauses while the session is inactive.
+   - It resumes smoothly after the user session becomes active again.
 
-3. Spring-damper mouse interaction
-   - the mouse pulls the charm instead of instantly teleporting it
-   - the charm lags slightly behind fast pointer movement
-   - the rope straightens naturally under tension
+3. Sleep / wake detection
+   - Physics pauses when the displays or Mac sleep.
+   - The simulation clock is reset during pause, so unlocking/waking does not
+     cause a giant jump or violent physics catch-up frame.
 
-4. Real flick momentum
-   - recent pointer velocity is measured and smoothed
-   - releasing the mouse transfers part of that velocity into the charm
-   - fast flick = stronger swing; slow release = gentle movement
+4. Experimental Lock-Screen Visibility
+   - OFF by default.
+   - Enable in the control window or:
+       MyDangle > Startup & Lock > Experimental Lock-Screen Visibility
 
-5. Better gravity and stability
-   - time-based physics
-   - high-frequency update request
-   - substeps on slower frames
-   - constraint solver prevents stretchy/unstable rope behavior
+   When enabled, MyDangle:
+   - sets the dangle window's canBecomeVisibleWithoutLogin property to true
+   - raises the dangle to NSWindow.Level.screenSaver while the user session
+     is inactive
+   - leaves the charm static while locked
 
-6. More realistic rope appearance
-   - smooth spline through the physical rope nodes
-   - dark depth strand
-   - warm-gold main fiber
-   - fine highlight
-   - subtle braided/fiber bands
-   - small top knot
-   - soft shadow
+IMPORTANT LIMITATION
+--------------------
+This is best-effort/experimental.
 
-7. Small charm tilt
-   - the artwork stays mostly upright
-   - it tilts slightly from rope direction and horizontal inertia
+macOS owns the secure password Lock Screen and may place that secure UI above
+all third-party app windows. Enabling this option does NOT guarantee that the
+charm will be visible on every macOS version or every lock/login configuration.
+
+The feature uses public AppKit APIs only and does not bypass macOS security.
 
 INSTALL / UPDATE
 ----------------
-1. Quit any currently running MyDangle.
+1. Quit MyDangle v1.5.
 2. Unzip this package.
 3. Double-click "Install MyDangle.command".
-4. Let Terminal reach BUILD SUCCEEDED.
+4. Wait for BUILD SUCCEEDED.
 5. The installer replaces:
-      ~/Applications/MyDangle.app
-6. It launches the updated app automatically.
+       ~/Applications/MyDangle.app
+6. MyDangle launches automatically.
 
 AFTER INSTALLATION
 ------------------
-No Xcode is needed to RUN MyDangle.
 Double-click:
     Home > Applications > MyDangle.app
 
-HOW TO TEST THE NEW PHYSICS
----------------------------
-- Grab the charm.
-- Move the mouse slowly left/right and notice the weighted follow.
-- Move quickly and notice the rope tension.
-- Flick sideways and release.
-- Try short vs long rope from the MyDangle menu.
-- Use "Reset Physics" to return to rest.
+No Xcode is needed to run it.
 
-If you prefer more or less lag after testing, the next update can expose
-"Light / Natural / Heavy" physics presets.
+RECOMMENDED TEST
+----------------
+A. Confirm normal desktop behavior first.
+B. Enable "Experimental lock-screen visibility".
+C. Lock the Mac normally.
+D. Check whether your macOS configuration allows the static charm to remain
+   visible. If the secure password screen covers it, that is macOS security
+   behavior rather than an app failure.
+E. Unlock and confirm physics resumes smoothly.
+
+LAUNCH AT LOGIN NOTE
+--------------------
+The app uses Apple's SMAppService.mainApp API on macOS 13+.
+Depending on macOS settings, registration can require user approval. The
+control window shows "Waiting for macOS approval" when that happens.

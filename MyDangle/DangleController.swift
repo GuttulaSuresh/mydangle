@@ -6,6 +6,10 @@ final class DangleController {
     private var dangleView: DangleView?
     private var pointerTimer: Timer?
 
+    private var sessionInactive = false
+    private var screensSleeping = false
+    private var computerSleeping = false
+
     // Wider/taller than v1.4 so a long rope can move naturally without clipping.
     private let panelWidth: CGFloat = 900
     private let panelHeight: CGFloat = 740
@@ -19,15 +23,125 @@ final class DangleController {
             name: NSApplication.didChangeScreenParametersNotification,
             object: nil
         )
+
+
+        let workspaceCenter = NSWorkspace.shared.notificationCenter
+
+        workspaceCenter.addObserver(
+            self,
+            selector: #selector(sessionDidResignActive),
+            name: NSWorkspace.sessionDidResignActiveNotification,
+            object: nil
+        )
+
+        workspaceCenter.addObserver(
+            self,
+            selector: #selector(sessionDidBecomeActive),
+            name: NSWorkspace.sessionDidBecomeActiveNotification,
+            object: nil
+        )
+
+        workspaceCenter.addObserver(
+            self,
+            selector: #selector(screensDidSleep),
+            name: NSWorkspace.screensDidSleepNotification,
+            object: nil
+        )
+
+        workspaceCenter.addObserver(
+            self,
+            selector: #selector(screensDidWake),
+            name: NSWorkspace.screensDidWakeNotification,
+            object: nil
+        )
+
+        workspaceCenter.addObserver(
+            self,
+            selector: #selector(computerWillSleep),
+            name: NSWorkspace.willSleepNotification,
+            object: nil
+        )
+
+        workspaceCenter.addObserver(
+            self,
+            selector: #selector(computerDidWake),
+            name: NSWorkspace.didWakeNotification,
+            object: nil
+        )
     }
 
     deinit {
         pointerTimer?.invalidate()
         NotificationCenter.default.removeObserver(self)
+        NSWorkspace.shared.notificationCenter.removeObserver(self)
     }
 
     @objc private func screenChanged() {
         updatePanelFrame()
+    }
+
+
+    @objc private func sessionDidResignActive() {
+        sessionInactive = true
+        updateLockAndSleepState()
+    }
+
+    @objc private func sessionDidBecomeActive() {
+        sessionInactive = false
+        updateLockAndSleepState()
+    }
+
+    @objc private func screensDidSleep() {
+        screensSleeping = true
+        updateLockAndSleepState()
+    }
+
+    @objc private func screensDidWake() {
+        screensSleeping = false
+        updateLockAndSleepState()
+    }
+
+    @objc private func computerWillSleep() {
+        computerSleeping = true
+        updateLockAndSleepState()
+    }
+
+    @objc private func computerDidWake() {
+        computerSleeping = false
+        updateLockAndSleepState()
+    }
+
+    private func updateLockAndSleepState() {
+        let shouldSuspend =
+            sessionInactive || screensSleeping || computerSleeping
+
+        dangleView?.setSuspended(shouldSuspend)
+
+        guard let panel else { return }
+
+        if sessionInactive && settings.experimentalLockScreenVisibility {
+            // Best-effort AppKit behavior only. The secure password UI can
+            // still cover third-party windows.
+            panel.canBecomeVisibleWithoutLogin = true
+            panel.level = .screenSaver
+            panel.ignoresMouseEvents = true
+
+            if settings.isVisible {
+                panel.orderFrontRegardless()
+            }
+        } else {
+            panel.level = .statusBar
+            panel.canBecomeVisibleWithoutLogin =
+                settings.experimentalLockScreenVisibility
+
+            if !shouldSuspend {
+                updateMousePassthrough()
+            }
+
+            if settings.isVisible {
+                panel.orderFrontRegardless()
+            }
+        }
     }
 
     private func targetScreen() -> NSScreen? {
@@ -66,6 +180,8 @@ final class DangleController {
         p.backgroundColor = .clear
         p.hasShadow = false
         p.level = .statusBar
+        p.canBecomeVisibleWithoutLogin =
+            settings.experimentalLockScreenVisibility
         p.hidesOnDeactivate = false
         p.isReleasedWhenClosed = false
         p.acceptsMouseMovedEvents = true
@@ -170,6 +286,17 @@ final class DangleController {
         updatePanelFrame()
     }
 
+    func setExperimentalLockScreenVisibility(_ enabled: Bool) {
+        settings.experimentalLockScreenVisibility = enabled
+        settings.save()
+
+        if let panel {
+            panel.canBecomeVisibleWithoutLogin = enabled
+        }
+
+        updateLockAndSleepState()
+    }
+
     func reset() {
         settings.reset()
         dangleView?.ropeLength = settings.ropeLength
@@ -218,6 +345,7 @@ final class DangleView: NSView {
     private var animationTimer: Timer?
     private var lastTime: TimeInterval = CACurrentMediaTime()
     private var lastPhysicsStep: CGFloat = 1.0 / 60.0
+    private var isSuspended = false
 
     private(set) var isDragging = false
     private var dragTarget: CGPoint?
@@ -334,6 +462,14 @@ final class DangleView: NSView {
 
     private func step() {
         let now = CACurrentMediaTime()
+
+        if isSuspended {
+            // Keep time fresh so waking/unlocking never creates one giant
+            // catch-up physics frame.
+            lastTime = now
+            return
+        }
+
         var elapsed = CGFloat(now - lastTime)
         lastTime = now
 
@@ -903,6 +1039,19 @@ final class DangleView: NSView {
         end.previous.x = end.position.x - direction * impulse
         end.previous.y = end.position.y + 1.0
         nodes[lastIndex] = end
+    }
+
+    func setSuspended(_ suspended: Bool) {
+        guard suspended != isSuspended else { return }
+
+        isSuspended = suspended
+        lastTime = CACurrentMediaTime()
+
+        if suspended {
+            isDragging = false
+            dragTarget = nil
+            pointerVelocity = CGVector(dx: 0, dy: 0)
+        }
     }
 
     func resetPhysics() {
